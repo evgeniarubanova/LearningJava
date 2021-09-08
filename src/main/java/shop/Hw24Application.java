@@ -11,7 +11,6 @@ import shop.dao.ProductDaoDataJpa;
 import shop.dao.interfaces.ProductDao;
 import shop.entities.Product;
 import shop.repositories.ProductRepository;
-import shop.services.DemoService;
 
 import java.util.List;
 
@@ -20,6 +19,6 @@ public class Hw24Application{
 
     public static void main(String[] args) {
         final ConfigurableApplicationContext ctx = SpringApplication.run(Hw24Application.class, args);
-        ctx.getBean(DemoService.class).demo();
+//        ctx.getBean(DemoService.class).demo();
     }
 }

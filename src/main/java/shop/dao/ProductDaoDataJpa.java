@@ -22,7 +22,7 @@ public class ProductDaoDataJpa implements ProductDao {
 
     @Override
     public Product getProductById(Integer id) {
-        return productRepository.getById(id);
+        return productRepository.findById(id).get();
     }
 
     @Override

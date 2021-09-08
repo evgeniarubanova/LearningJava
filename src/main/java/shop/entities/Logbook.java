@@ -13,12 +13,6 @@ import javax.persistence.*;
 @Table(name = "logbook")
 public class Logbook {
 
-    public Logbook(Integer purchaseID, Integer productID, int number) {
-        this.purchaseID = purchaseID;
-        this.productID = productID;
-        this.number = number;
-    }
-
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,5 +26,11 @@ public class Logbook {
 
     @Column(name = "number")
     private int number;
+
+    public Logbook(Integer purchaseID, Integer productID, int number) {
+        this.purchaseID = purchaseID;
+        this.productID = productID;
+        this.number = number;
+    }
 
 }

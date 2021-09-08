@@ -50,6 +50,7 @@ public class PurchaseDaoDataJpa implements PurchaseDao {
     @Override
     public Integer getPurchaseNumber() {
         List<Purchase> allPurchases = getAllPurchases();
-        return allPurchases.size() + 1;
+        Integer number = allPurchases.get(allPurchases.size()-1).getPurchaseID();
+        return number + 1;
     }
 }
