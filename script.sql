@@ -1,3 +1,8 @@
+create sequence cart_cart_id_seq
+    as integer;
+
+alter sequence cart_cart_id_seq owner to postgres;
+
 create table product
 (
     product_id    serial
@@ -41,7 +46,9 @@ create table customer
     name         varchar(20) not null,
     surname      varchar(40) not null,
     address      varchar(150),
-    phone_number text        not null
+    phone_number text        not null,
+    login        varchar(20) not null,
+    password     varchar(20) not null
 );
 
 alter table customer
@@ -49,6 +56,9 @@ alter table customer
 
 create unique index user_user_id_uindex
     on customer (user_id);
+
+create unique index customer_login_uindex
+    on customer (login);
 
 create table ticket
 (
@@ -69,29 +79,15 @@ create unique index ticket_ticket_id_uindex
 
 create table logbook
 (
-    id          serial
+    id         serial
         constraint logbook_pk
             primary key,
-    purchase_id integer not null,
-    product_id  integer not null,
-    number      integer not null
+    user_login varchar(20) not null,
+    product_id integer     not null,
+    count      integer     not null
 );
 
 alter table logbook
     owner to postgres;
-
-create table cart
-(
-    purchase_id     integer not null
-        constraint cart_pk
-            primary key,
-    purchase_amount integer not null
-);
-
-alter table cart
-    owner to postgres;
-
-create unique index cart_purchase_id_uindex
-    on cart (purchase_id);
 
 

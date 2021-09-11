@@ -18,19 +18,19 @@ public class Logbook {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "purchase_id")
-    private Integer purchaseID;
+    @Column(name = "user_login")
+    private String userLogin;
 
     @Column(name = "product_id")
     private Integer productID;
 
-    @Column(name = "number")
-    private int number;
+    @Column(name = "count")
+    private int count;
 
-    public Logbook(Integer purchaseID, Integer productID, int number) {
-        this.purchaseID = purchaseID;
+    public Logbook(String userLogin, Integer productID, int count) {
+        this.userLogin = userLogin;
         this.productID = productID;
-        this.number = number;
+        this.count = count;
     }
 
 }

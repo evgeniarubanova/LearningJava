@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface LogbookRepository extends JpaRepository<Logbook, Integer> {
-    List<Logbook> getAllByPurchaseID(Integer purchaseID);
+
 }

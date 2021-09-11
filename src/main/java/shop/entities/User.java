@@ -1,9 +1,6 @@
 package shop.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -11,6 +8,7 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 @Entity
 @Table(name = "customer")
 public class User {
@@ -32,20 +30,18 @@ public class User {
     @Column(name = "phone_number")
     private String number;
 
-    public User(String name, String surname, String address, String number) {
+    @Column(name = "login")
+    private String login;
+
+    @Column(name = "password")
+    private String password;
+
+    public User(String name, String surname, String address, String number, String login, String password) {
         this.name = name;
         this.surname = surname;
         this.address = address;
         this.number = number;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", address='" + address + '\'' +
-                ", number='" + number + '\'' +
-                '}';
+        this.login = login;
+        this.password = password;
     }
 }

@@ -27,6 +27,18 @@ public class UserDaoDataJpa implements UserDao {
     }
 
     @Override
+    public User getUserByLogin(String userLogin) {
+        List<User> allUsers = getAllUsers();
+        User user = new User();
+        for (User u : allUsers) {
+            if (u.getLogin().equals(userLogin)) {
+                user = u;
+            }
+        }
+        return user;
+    }
+
+    @Override
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }

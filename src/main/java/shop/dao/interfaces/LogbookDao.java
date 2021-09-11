@@ -7,5 +7,8 @@ import java.util.List;
 
 public interface LogbookDao {
     Logbook addNote(Logbook note);
-    List<Product> getCart(Integer purchaseID);
+    Logbook getNoteById(Integer id);
+    Logbook updateNote(Logbook note);
+    List<Product> getCart(String userLogin);
+    boolean deleteCart(String userLogin);
 }

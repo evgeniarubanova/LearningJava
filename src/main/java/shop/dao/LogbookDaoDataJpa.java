@@ -35,17 +35,39 @@ public class LogbookDaoDataJpa implements LogbookDao {
     }
 
     @Override
-    public List<Product> getCart(Integer purchaseID) {
+    public Logbook getNoteById(Integer id) {
+        return logbookRepository.findById(id).get();
+    }
+
+    @Override
+    public Logbook updateNote(Logbook note) {
+        return addNote(note);
+    }
+
+    @Override
+    public List<Product> getCart(String userLogin) {
         List<Logbook> allCarts = logbookRepository.findAll();
         List<Product> cart = new ArrayList<>();
         for (Logbook oneCart : allCarts) {
-            if (oneCart.getPurchaseID().equals(purchaseID)) {
+            if (oneCart.getUserLogin().equals(userLogin)) {
                 Product product = productRepository.findById(oneCart.getProductID()).get();
                 cart.add(product);
             }
         }
         return cart;
     }
+
+    @Override
+    public boolean deleteCart(String userLogin) {
+        List<Logbook> allCarts = logbookRepository.findAll();
+        for (Logbook oneCart : allCarts) {
+            if (oneCart.getUserLogin().equals(userLogin)) {
+                logbookRepository.deleteById(oneCart.getId());
+            }
+        }
+        return true;
+    }
+
 
 //    @Override
 //    public Map<Integer, Integer> getPurchaseProducts(Integer purchaseID) {

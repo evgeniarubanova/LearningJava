@@ -1,0 +1,90 @@
+### ПОЛУЧЕНИЕ ВСЕХ ТОВАРОВ
+GET http://localhost:8080/api/v1/product
+Content-Type: application/json
+
+### ПОЛУЧЕНИЕ ОДНОГО ТОВАРА
+GET http://localhost:8080/api/v1/product/10
+Content-Type: application/json
+
+### ОБНОВЛЕНИЕ ТОВАРА
+PUT http://localhost:8080/api/v1/product/13
+Content-Type: application/json
+
+{
+  "title": "Игрушка елочная Медвежонок",
+  "description": "Игрушка ручной работы, выполненная в смешанной технике, украсит вашу елочку и подарит вам новогоднее настроение.",
+  "price": "120"
+}
+
+### УДАЛЕНИЕ ТОВАРА
+DELETE http://localhost:8080/api/v1/product/13
+Content-Type: application/json
+
+###--------------------------------------------------------------------------------------###
+
+### ПОЛУЧЕНИЕ СОСТАВА КОРЗИНЫ
+GET http://localhost:8080/api/v1/cart?userLogin=mike77
+Content-Type: application/json
+
+###ДОБАВЛЕНИЕ ТОВАРА В КОРЗИНУ
+POST http://localhost:8080/api/v1/cart/add?userLogin=mike77
+Content-Type: application/json
+
+{
+  "productID": "11",
+  "count": "1"
+}
+
+####РЕДАКТИРОВАНИЕ КОЛИЧЕСТВА ТОВАРОВ
+PUT http://localhost:8080/api/v1/cart/update?id=54
+Content-Type: application/json
+
+{
+  "userLogin": "mike77",
+  "productID": "10",
+  "count": "2"
+}
+
+###ОЧИСТКА КОРЗИНЫ
+DELETE http://localhost:8080/api/v1/cart/delete?login=mike77
+Content-Type: application/json
+
+###--------------------------------------------------------------------------------------###
+
+### ВСЕ ПОЛЬЗОВАТЕЛИ
+GET http://localhost:8080/api/v1/user/all
+Content-Type: application/json
+
+### ПРОСМОТР СВЕДЕНИЙ О ПОЛЬЗВОВАТЕЛЕ
+GET http://localhost:8080/api/v1/user?userLogin=sweetie
+Content-Type: application/json
+
+###СОЗДАНИЕ ПОЛЬЗОВАТЕЛЯ
+POST http://localhost:8080/api/v1/user/create
+Content-Type: application/json
+
+{
+  "name": "Ангелина",
+  "surname": "Красносельская",
+  "address": "Г. Задонск, ул. Грина, д. 32, кв. 70",
+  "number": "+79058972838",
+  "login": "randomName",
+  "password": "s;f**204f;"
+}
+
+###РЕДАКТИРОВАНИЕ ПОЛЬЗОВАТЕЛЯ
+PUT http://localhost:8080/api/v1/user/update?id=22
+Content-Type: application/json
+
+{
+  "name": "Зинаида",
+  "surname": "Новикова",
+  "address": "Г. Архангельск, ул. Ленина, д. 5, кв.9",
+  "number": "+79053342341",
+  "login": "zin_nov",
+  "password": "qwerty.,mnbv"
+}
+
+###УДАЛЕНИЕ ПОЛЬЗОВАТЕЛЯ
+DELETE http://localhost:8080/api/v1/user/delete?id=22
+Content-Type: application/json
